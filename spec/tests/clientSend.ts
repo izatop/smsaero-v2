@@ -2,7 +2,7 @@ import {Client} from "../../src";
 import * as assert from "assert";
 import {Message} from "../../src/Message";
 import {Channels} from "../../src/Channels";
-import {Response} from "../../src/API/Response";
+import {Response} from "../../src/Api/Response";
 
 export async function clientSend() {
     const {TEST_ID, TEST_KEY, TEST_PHONE, TEST_MSG, TEST_SIGN}: any = process.env;

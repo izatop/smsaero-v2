@@ -1,5 +1,5 @@
-import {MessageArguments} from "./API/MessageArguments";
-import {Validator} from "./API/Validator";
+import {MessageArguments} from "./Api/MessageArguments";
+import {Validator} from "./Api/Validator";
 
 export class Message {
     constructor(private message: MessageArguments) {

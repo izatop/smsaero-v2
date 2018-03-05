@@ -2,9 +2,10 @@ import {Message} from "./Message";
 import {parse} from "url";
 import {Readable} from "stream";
 import {req} from "./req";
-import {SentResponse} from "./API/Response/SentResponse";
-import {Envelope, Response} from "./API/Response";
-import {StatusResponse} from "./API/Response/StatusResponse";
+import {SentResponse} from "./Api/Response/SentResponse";
+import {Envelope, Response} from "./Api/Response";
+import {StatusResponse} from "./Api/Response/StatusResponse";
+import {Channels} from "./Channels";
 
 export type Options = {
     timeout?: number;
@@ -12,6 +13,8 @@ export type Options = {
 }
 
 export class Client {
+    static Channels = Channels;
+
     protected endpoint = "https://gate.smsaero.ru/v2";
 
     constructor(private email: string, private privateKey: string, private options: Options = {}) {
