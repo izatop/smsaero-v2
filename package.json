@@ -1,6 +1,6 @@
 {
   "name": "smsaero-v2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SMSAero v2 API client",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/izatop/smsaero-v2.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "smsaero",
