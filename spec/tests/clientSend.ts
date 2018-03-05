@@ -8,7 +8,7 @@ export async function clientSend() {
     const {TEST_ID, TEST_KEY, TEST_PHONE, TEST_MSG, TEST_SIGN}: any = process.env;
     assert(TEST_ID && TEST_KEY && TEST_PHONE, 'Please provide Id, Key and phone number');
 
-    const channel = Channels.INFO;
+    const channel = TEST_SIGN ? Channels.DIRECT : Channels.INFO;
     const api = new Client(TEST_ID, TEST_KEY);
     const res = await api.send(new Message({
         channel,
