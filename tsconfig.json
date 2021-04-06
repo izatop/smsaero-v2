@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2017",
     "module": "commonjs",
-    "strict": true,
-    "rootDir": "src",
-    "outDir": "dist",
-    "declaration": true
+    "outDir": "build",
+    "declaration": true,
+    "lib": [
+      "ES2018"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "spec",
-    "test",
-    "dist"
+  "include": [
+    "src",
+    "spec"
   ]
 }

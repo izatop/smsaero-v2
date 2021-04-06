@@ -27,21 +27,15 @@ export const Validator = new class Validator {
             return false;
         }
 
-        if (false === /\d+/.test(numberString)) {
-            return false;
-        }
-
-        return true;
+        return false !== /\d+/.test(numberString);
     }
 
     validate(message: MessageArguments) {
-        assert("channel" in message, "Missing a channel field");
         assert("sign" in message, "Missing a sign field");
         assert("text" in message, "Missing a text field");
         assert("number" in message, "Missing a number field");
         assert(this.validateText(message.sign), "Invalid message sign");
         assert(this.validateText(message.text), "Invalid message text");
-        assert(this.validateChannel(message.channel), "Invalid message channel");
         assert(this.validateNumber(message.number), "Invalid message number");
 
         if (message.dateSend) {

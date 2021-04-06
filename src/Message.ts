@@ -16,7 +16,6 @@ export class Message {
             rest = {number};
         }
 
-
         return {
             ...rest,
             ...message

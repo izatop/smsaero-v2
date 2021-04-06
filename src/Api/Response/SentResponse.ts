@@ -1,5 +1,4 @@
 import {SentResponseStatus} from "./SentResponseStatus";
-import {Channels} from "../../Channels";
 
 export interface SentResponse {
     id: number;
@@ -8,7 +7,7 @@ export interface SentResponse {
     text: string;
     status: SentResponseStatus;
     extendStatus: string;
-    channel: Channels;
+    channel: string;
     cost: number;
     dateCreate: number;
     dateSend: number;

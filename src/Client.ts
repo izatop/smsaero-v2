@@ -6,6 +6,7 @@ import {SentResponse} from "./Api/Response/SentResponse";
 import {Envelope, Response} from "./Api/Response";
 import {StatusResponse} from "./Api/Response/StatusResponse";
 import {Channels} from "./Channels";
+import {ListResponse} from "./Api/Response/ListResponse";
 
 export type Options = {
     timeout?: number;
@@ -22,21 +23,46 @@ export class Client {
             .toString("base64");
 
         this.options.headers = {
+            ...this.options.headers || {},
             Authorization: `Basic ${base64}`,
-            ...this.options.headers || {}
+            Accept: "application/json",
         }
     }
 
-    async send<T extends Message>(message: T) {
+    public async send<T extends Message>(message: T): Promise<Response<SentResponse>> {
         return new Response<SentResponse>(
             await this.call<Envelope<SentResponse>>('sms/send', message.serialize())
         );
     }
 
-    async getStatus(id: number) {
+    public async getStatus(id: number): Promise<Response<StatusResponse>> {
         return new Response<StatusResponse>(
             await this.call<Envelope<StatusResponse>>('sms/status', {id})
         );
+    }
+
+    public async getList(filter: { number?: string; text?: string; page: number; }): Promise<Response<ListResponse>> {
+        return new Response<ListResponse>(
+            await this.call<Envelope<ListResponse>>('sms/list', filter)
+        );
+    }
+
+    public async getBalance(): Promise<Response<{ balance: number }>> {
+        return new Response<{ balance: number }>(
+            await this.call<Envelope<{ balance: number }>>('balance', {})
+        );
+    }
+
+    public async getTariffs(): Promise<Response<Record<string, Record<string, number>>>> {
+        return new Response<Record<string, Record<string, number>>>(
+            await this.call<Envelope<Record<string, Record<string, number>>>>('tariffs', {})
+        );
+    }
+
+    public async testAuth(): Promise<Response<Response<null>>> {
+        return new Response<Response<null>>(
+            await this.call<Envelope<Response<null>>>('auth', {}),
+        )
     }
 
     protected async call<T extends { [k: string]: any }>(path: string, query: object) {

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-rm -rf dist/
-tsc -p ./
-cp ./package.json ./dist
-cp ./README.md ./dist
+rm -rf build/
+npm run build
 
-npm pub ./dist
+cp ./package.json ./build/src/
+cp ./README.md ./build/src/
+
+# npm pub ./build/src

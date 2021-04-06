@@ -1,10 +1,8 @@
-import {Channels} from "../Channels";
-
 export interface MessageArguments {
-    sign: string;
     text: string;
+    sign: string;
     number: string | string [];
-    channel: Channels;
     dateSend?: number;
     callbackUrl?: string;
+    shortLink?: 1;
 }
