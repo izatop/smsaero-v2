@@ -2,25 +2,24 @@
 
 This package contains a client library for working with [SMSAero](https://smsaero.ru/api/description/).
 
-## Installation
+## Install
 
-Just type this:
-
-`npm i smsaero-v2`
+`npm i smsaero-v2` or `yarn add smsaero-v2`
 
 ## Usage
 
+Sending sms example:
+
 ```typescript
-import {Client, Channels, Message} from "smsaero-v2";
+import {Client, Message} from "smsaero-v2";
 
 // create a client instance with login/key
 // and pass a timeout option (optional)
 const client = new Client("login", "key", {timeout: 15000});
 (async function () {
 	const res = await api.send(new Message({
-	  channel: Channels.INFO,
 	  sign: "SMS Aero",
-	  number: "79991112233",
+	  number: "79991112233", // num or [num1, num2, ...numN]
 	  text: "Test message"
 	}));
 
@@ -28,8 +27,8 @@ const client = new Client("login", "key", {timeout: 15000});
 })();
 ```
 
-Output format described in Response ([SentResponse.ts](src/Api/Response/SentResponse.ts)).
+Output format described in interfaces or SMSAero documentation.
 
-## Features
+## API
 
-Now, you can use two methods: `send` and `getStatus`. If you need more SMSAero API methods tell me what you want.
+See TypeScript interfaces.
