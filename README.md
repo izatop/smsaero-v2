@@ -1,6 +1,6 @@
-# SMSAero API (v2)
+# SMSAero V2
 
-This package contains a client library for working with [SMSAero](https://smsaero.ru/api/description/).
+[SMSAero](https://smsaero.ru/description/api/) V2 client written in TypeScript.
 
 ## Install
 
