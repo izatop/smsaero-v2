@@ -60,12 +60,12 @@ class SMSAero {
         const parts = [];
         for (const [key, value] of Object.entries(query)) {
             if (["number", "string"].includes(typeof value)) {
-                parts.push(`${key}=${encodeURI(value)}`);
+                parts.push(`${key}=${encodeURIComponent(value)}`);
                 continue;
             }
             if (Array.isArray(value)) {
                 for (const item of value) {
-                    parts.push(`${key}[]=${encodeURI(item)}`);
+                    parts.push(`${key}[]=${encodeURIComponent(item)}`);
                 }
                 continue;
             }
